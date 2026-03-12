@@ -2,19 +2,22 @@
 
 ## Project Overview
 
-TerraSynchrony LLC marketing website — a static, single-page site presenting the company's geospatial digital twin platform, service tiers, sector specialties, client portal login, and contact form. Built with pure HTML, CSS, and vanilla JavaScript. No build tools, frameworks, or runtime dependencies.
+TerraSynchrony LLC is a company specializing in geospatial digital twin solutions for land-based operations. This repository contains the **static marketing website** — a single-page site presenting the company's mission, modular platform tiers, sector specializations, client portal login, and contact form.
+
+**Tech stack:** Static HTML5 + CSS3 with minimal inline JavaScript (no JS frameworks, no build tools, no runtime dependencies).
 
 ## Repository Structure
 
 ```
-web/
-├── index.html          # Single-page site with anchor-linked sections
-├── css/
-│   └── styles.css      # All styles; CSS variables for theming at :root
-├── assets/
-│   └── hero-bg.png     # Hero background image (~2.7 MB)
-├── README.md           # Project overview and deployment guide
-└── CLAUDE.md           # This file
+.
+├── README.md           # Project documentation
+├── CLAUDE.md           # This file
+└── web/
+    ├── index.html      # Single-page website (all sections)
+    ├── css/
+    │   └── styles.css  # Global stylesheet (CSS variables, grid layout, responsive)
+    └── assets/
+        └── hero-bg.png # Hero section background image
 ```
 
 ## Technology Stack
@@ -70,27 +73,22 @@ The site is designed for **GitHub Pages**. Push to the `main` branch and enable 
 ## Key Conventions
 
 ### HTML
-- Use semantic HTML elements and descriptive comments before each section
-- All sections live inside `<main>` except the nav and hero `<header>`
-- Forms use inline `onsubmit="event.preventDefault(); alert('...');"` as placeholders
-- Navigation uses anchor links (`#about`, `#services`, etc.) for single-page scrolling
+- Use semantic HTML5 elements: `<nav>`, `<header>`, `<main>`, `<section>`, `<footer>`
+- Include descriptive HTML comments before each major section
+- Forms must have proper `<label>` elements with `for` attributes matching input `id`s
+- New sections should follow the established pattern: `<section id="name" class="name">`
 
-### CSS
-- Use CSS custom properties (`var(--primary)`, etc.) for all colours — never hardcode colour values
-- Card layouts use `display: grid` with `repeat(auto-fit, minmax(250px, 1fr))` for responsive grids
-- Navigation is `position: fixed` with semi-transparent background (`rgba(0, 0, 0, 0.5)`)
-- Fonts: `'Lora', serif` for headings/brand, `'Inter', sans-serif` for body
-- Responsive breakpoint at `768px` for mobile typography adjustments
-- The `.cta-btn` class is shared across all call-to-action buttons (links and submit buttons)
+## Deployment
 
-### Assets
-- Place images and static files in `assets/`
-- Place stylesheets in `css/`
-- Reference assets from CSS using relative paths from `css/` (e.g., `url('../assets/hero-bg.png')`)
+The site is hosted via **GitHub Pages**, configured to serve from the `main` branch at `/ (root)`. You must first enable GitHub Pages in the repository settings (select `main` as the source and `/ (root)` as the folder) as described in `README.md`. After GitHub Pages is configured, pushes to `main` will deploy the site automatically; there is no separate CI/CD pipeline or build step.
 
-### JavaScript
-- Minimal JS only — no external scripts, no libraries
-- Form handlers are placeholders; actual backend integration is not yet implemented
+## Testing
+
+No automated tests exist. Verify changes by:
+1. Opening `index.html` in a browser (or local HTTP server)
+2. Checking all navigation anchor links scroll to correct sections
+3. Testing responsive layout at mobile (`< 768px`) and desktop widths
+4. Validating forms display and submit handlers fire correctly
 
 ## Common Tasks
 
